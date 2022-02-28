@@ -1,5 +1,5 @@
-Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
-following symbols:
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
 
 Terraform will perform the following actions:
@@ -147,7 +147,7 @@ Terraform will perform the following actions:
           + "Name" = "instance-2.tf"
         }
       + tenancy                              = (known after apply)
-      + user_data                            = "1c318149390fc2f6c97c0977a314e50a46f4132f"
+      + user_data                            = "2f43575f05f863170c583f984a982ea1a7afc772"
       + user_data_base64                     = (known after apply)
       + vpc_security_group_ids               = (known after apply)
 
@@ -256,8 +256,8 @@ Terraform will perform the following actions:
       + vpc_id           = (known after apply)
     }
 
-  # aws_route_table_association.prod-rtb-private-subnet will be created
-  + resource "aws_route_table_association" "prod-rtb-private-subnet" {
+  # aws_route_table_association.prod-rtb-public-subnet will be created
+  + resource "aws_route_table_association" "prod-rtb-public-subnet" {
       + id             = (known after apply)
       + route_table_id = (known after apply)
       + subnet_id      = (known after apply)
@@ -269,29 +269,111 @@ Terraform will perform the following actions:
       + description            = "Managed by Terraform"
       + egress                 = [
           + {
-              + cidr_blocks      = (known after apply)
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
               + description      = ""
-              + from_port        = 0
+              + from_port        = -1
               + ipv6_cidr_blocks = []
               + prefix_list_ids  = []
-              + protocol         = "-1"
+              + protocol         = "icmp"
               + security_groups  = []
               + self             = false
-              + to_port          = 0
+              + to_port          = -1
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 443
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
             },
         ]
       + id                     = (known after apply)
       + ingress                = [
           + {
-              + cidr_blocks      = (known after apply)
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
               + description      = ""
-              + from_port        = 0
+              + from_port        = -1
               + ipv6_cidr_blocks = []
               + prefix_list_ids  = []
-              + protocol         = "-1"
+              + protocol         = "icmp"
               + security_groups  = []
               + self             = false
-              + to_port          = 0
+              + to_port          = -1
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 443
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
             },
         ]
       + name                   = (known after apply)
@@ -333,6 +415,19 @@ Terraform will perform the following actions:
                   + "0.0.0.0/0",
                 ]
               + description      = ""
+              + from_port        = -1
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "icmp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = -1
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
               + from_port        = 22
               + ipv6_cidr_blocks = []
               + prefix_list_ids  = []
@@ -346,13 +441,13 @@ Terraform will perform the following actions:
                   + "0.0.0.0/0",
                 ]
               + description      = ""
-              + from_port        = 433
+              + from_port        = 443
               + ipv6_cidr_blocks = []
               + prefix_list_ids  = []
               + protocol         = "tcp"
               + security_groups  = []
               + self             = false
-              + to_port          = 433
+              + to_port          = 443
             },
           + {
               + cidr_blocks      = [
