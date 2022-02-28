@@ -1,22 +1,4 @@
-provider "aws" {
-  access_key = var.aws_access_key_id
-  secret_key = var.aws_secret_access_key
-  region     = var.aws_region
-
-}
-
-variable "aws_region" {
-  default = "eu-central-1"
-}
-
-variable "aws_secret_access_key" {
-  default = "QXZR6dywYzR0BqbnCEgguBqXiH3fZAt1qFuJsBEi"
-}
-
-variable "aws_access_key_id" {
-  default = "AKIAQKBQSHDYEAWZKTFO"
-}
-
+provider "aws" {}
 variable "centos-ami" {
   default = "ami-0005dd1bdf84d89d0"
 }
