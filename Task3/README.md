@@ -1,6 +1,6 @@
 ## Web Check ##
 ### Ubuntu server ###
-http://18.184.105.182
+http://3.122.252.252
 
 ## How to set aws credentials ##
 set AWS_ACCESS_KEY_ID=123234234         /  export AWS_ACCESS_KEY_ID=123234234
