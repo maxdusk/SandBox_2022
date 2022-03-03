@@ -1,0 +1,12 @@
+./install.sh
+touch /root/index.html
+docker run --name app -p 80:80 -v /root/index.html:/usr/share/nginx/html/index.html -d nginx
+touch Dockerfile
+docker build -t rmakhmudjon/sandbox_2022 .
+docker login
+docker push rmakhmudjon/sandbox_2022:latest
+touch docker-compose.yml
+docker-compose up -d
+
+
+docker hub link https://hub.docker.com/r/rmakhmudjon/sandbox_2022

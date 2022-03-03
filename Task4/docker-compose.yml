@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  web:
+    image: rmakhmudjon/sandbox_2022
+    deploy:
+      replicas: 5
+  app:
+    image: tomcat
+    deploy:
+      replicas: 1
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres
+    deploy:
+      replicas: 1
+    depends_on:
+      - web
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
