@@ -1,0 +1,5 @@
+touch ansible.cfg
+touch hosts.txt
+ansible all -m ping
+touch docker-install.yml
+ansible-playbook docker-install.yml

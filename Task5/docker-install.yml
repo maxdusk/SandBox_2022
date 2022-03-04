@@ -1,0 +1,13 @@
+- name: Install Docker
+  hosts: task5
+  become: yes
+
+  tasks:
+  - name: Enable Docker in Amazon extras
+    shell: amazon-linux-extras enable docker
+
+  - name: Install Docker
+    yum: name=docker state=latest
+
+  - name: Start and Enable
+    service: name=docker state=started enabled=yes
