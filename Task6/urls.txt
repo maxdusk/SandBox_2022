@@ -1,0 +1,10 @@
+Grafana: http://35.157.158.21:3000/
+user: admin
+pass: password
+
+Kibana: http://35.157.158.21:5601/
+
+
+Zabbix: http://35.157.158.21/zabbix
+user: Admin
+password: zabbix
